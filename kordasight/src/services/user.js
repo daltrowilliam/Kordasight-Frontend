@@ -8,8 +8,8 @@ export const login = (body, history) => {
         console.log(`${BASE_URL}"/user/login"`)
         console.log(body)
         console.log(response)
-        localStorage.setItem("token", response.data.token)
-        localStorage.setItem("username", response.data.user.username)
+        localStorage.setItem("token", response.data.result.accessToken)
+        localStorage.setItem("username", response.data.result.username)
         goToImageFeed(history)
     }).catch(error => {
         console.log(error.response)
@@ -21,8 +21,8 @@ export const login = (body, history) => {
 export const signup = (body, history) => {
     
     axios.post(`${BASE_URL}/user/signup`, body).then(response => {
-        localStorage.setItem("token", response.data.token)
-        localStorage.setItem("username", response.data.user.username)
+        localStorage.setItem("token", response.data.result.accessToken)
+        localStorage.setItem("username", response.data.result.username)
         goToImageFeed(history)
     }).catch(error => {
         alert("Erro ao cadastar usuário!")
