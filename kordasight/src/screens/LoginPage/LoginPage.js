@@ -9,7 +9,9 @@ import { useUnprotectPage } from '../../hooks/useUnprotectPage';
 import { goToSignUp } from '../../routes/coordinator'
 
 const LoginPage = () => {
+
     useUnprotectPage()
+    
     const history = useHistory()
     const {form, onChange} = useForm({email: "", password: ""})
 

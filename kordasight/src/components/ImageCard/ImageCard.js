@@ -1,6 +1,6 @@
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { CardStyled } from "./styles";
+import { CardStyled, PreviewImage, CardContentStyled } from "./styles";
 import { goToImageDetail } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 
@@ -11,12 +11,12 @@ const ImageCard = (props) => {
     
     return (
          <CardStyled>
-            <CardContent onClick={() => goToImageDetail(history, props.id)}>
-                <img src={props.file}/>
-                <Typography variant="h5" component="h2">
+            <CardContentStyled onClick={() => goToImageDetail(history, props.id)}>
+                <PreviewImage src={props.file}/>
+                <Typography variant="h7" component="h2">
                     {props.subtitle}
                 </Typography>
-            </CardContent>
+            </CardContentStyled>
          </CardStyled>
     )}
 

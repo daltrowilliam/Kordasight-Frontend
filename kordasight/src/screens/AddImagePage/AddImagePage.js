@@ -20,7 +20,7 @@ const AddImagePage = () => {
 
     const handleSubmission = (event) => {
         event.preventDefault()
-        
+        console.log("Body no handle:", form)
         addImage(form, history)
     }
 

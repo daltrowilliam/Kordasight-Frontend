@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {Card, CardActions, CardMedia} from '@material-ui/core';
+import {Card, CardContent, CardMedia} from '@material-ui/core';
 
 
 export const CardStyled = styled(Card)`
@@ -12,9 +12,10 @@ export const CardStyled = styled(Card)`
 export const CardMediaStyled = styled(CardMedia)`
     height: 240px;
 `
-export const CardActionsStyled = styled(CardActions)`
+export const CardContentStyled = styled(CardContent)`
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
 
 `
 
@@ -28,7 +29,8 @@ export const CountVoteContainer = styled.div`
     align-items: center;
 `
 
-export const VoteIcon = styled.img`
-    height: 4vh;
+export const PreviewImage = styled.img`
+    width: 60vw;
+    max-width: 300px;
     cursor: pointer;
 `
