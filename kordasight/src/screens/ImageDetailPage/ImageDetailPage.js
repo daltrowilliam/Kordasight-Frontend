@@ -7,8 +7,7 @@ import Fab from '@material-ui/core/Fab';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {BASE_URL} from "../../constants/apiConstants"
 import { Typography } from '@material-ui/core';
-import {Logomarca, LogoContainer, ImageDetailPageContainer,CardStyled, Imagem} from "./styles"
-import CardContent from '@material-ui/core/CardContent';
+import {Logomarca, LogoContainer, ImageDetailPageContainer,CardStyled, Imagem, AddButtonContainer, CardContentStyled} from "./styles"
 import { deleteImage } from '../../services/image'
 import { useHistory } from "react-router-dom";
 
@@ -43,11 +42,8 @@ const ImageDetailPage = () => {
                     <Logomarca src={logo} />
                 </LogoContainer>
                 <CardStyled>
-                        <CardContent className={classes.root}>
+                        <CardContentStyled>
                             <Imagem src={imageDetails.file}/>
-                            <Fab size="small" color="primary" aria-label="add" onClick={() => deleteImage(params.id, history)}>
-                                <DeleteIcon />
-                            </Fab>
                             <Typography component="h4">
                                 Legenda: {imageDetails.subtitle}
                             </Typography>
@@ -66,8 +62,12 @@ const ImageDetailPage = () => {
                             <Typography color="textSecondary" gutterBottom>
                                 Tags: {imageDetails.tags}
                             </Typography>
-                        </CardContent>
-
+                        </CardContentStyled>
+                        <AddButtonContainer className={classes.root}>
+                            <Fab size="small" color="primary" aria-label="add" onClick={() => deleteImage(params.id, history)}>
+                                <DeleteIcon />
+                            </Fab>
+                        </AddButtonContainer>
                  </CardStyled>
             </>
         }</ImageDetailPageContainer>

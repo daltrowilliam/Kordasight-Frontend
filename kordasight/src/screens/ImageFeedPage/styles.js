@@ -17,7 +17,7 @@ export const FeedContainer = styled.div`
     display: grid;
     grid-template-columns: 4fr 1fr;
     grid-template-rows: 1fr;
-    width: 80vw;
+    width: 100vw;
     max-width: 375px;
     padding-top: 15px;
     margin: 0 auto;
@@ -28,14 +28,16 @@ export const CardContainer = styled.div`
     flex-wrap: wrap;
     grid-row-start: 1;
     grid-column-start: 1;
-    width: 80vw;
-    max-width: 375px;
+    width: 90vw;
+    max-width: 300px;
     padding-top: 15px;
     margin: 0 auto;
 `
 
 export const AddButtonContainer = styled.div`
     display: flex;
+    width: 10vw;
+    max-width: 75px;
     grid-row-start: 1;
     grid-column-start: 2;
     align-items: start;

@@ -56,9 +56,9 @@ const ImageFeedPage = () => {
                     })}
                 </CardContainer>
                 <AddButtonContainer className={classes.root}>
-                <Fab size="small" color="primary" aria-label="add" onClick={() => goToAddImage(history)}>
-                    <AddAPhotoIcon />
-                </Fab>
+                    <Fab size="small" color="primary" aria-label="add" onClick={() => goToAddImage(history)}>
+                        <AddAPhotoIcon />
+                    </Fab>
                 </AddButtonContainer>
             </FeedContainer>
         </ImageFeedPageContainer>

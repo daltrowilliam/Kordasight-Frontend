@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Card } from '@material-ui/core';
+import { Card, CardContent } from '@material-ui/core';
 
 
 export const ImageDetailPageContainer = styled.div`
@@ -28,15 +28,34 @@ export const Logomarca = styled.img`
 `
 
 export const CardStyled = styled(Card)`
-    width: 90vw;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+    width: 100vw;
     max-width: 375px;
     margin: 0px;    
 `
 
+export const CardContentStyled = styled(CardContent)`
+    display: flex;
+    flex-wrap: wrap;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    width: 70vw;
+    max-width: 280px;
+    padding-top: 15px;
+    margin: 0 auto;    
+`
+
 export const Imagem = styled.img`
-    width: 90vw;
-    max-width: 375px;
+    width: 85vw;
+    max-width: 370px;
     margin: 0 auto;
 `
 
+export const AddButtonContainer = styled.div`
+    display: flex;
+    grid-row-start: 1;
+    grid-column-start: 2;
+`
 
