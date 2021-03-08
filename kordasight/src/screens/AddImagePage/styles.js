@@ -12,9 +12,10 @@ export const AddImagePageContainer = styled.div`
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
-    height: 42vh;
+    height: 52vh;
     justify-content: space-around;
     margin-bottom: 15px;
+
 `
 
 export const Logomarca = styled.img`

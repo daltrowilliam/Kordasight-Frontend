@@ -1,16 +1,16 @@
 import React from 'react';
-import logo from '../../assets/img_Logo_para_fundo_vinho.svg'
-import {Button} from '@material-ui/core'
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import addIcon from '../../assets/img_button_add_rest.svg'
+import logo from '../../assets/img_logo_para_fundo_branco.svg'
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import { useProtectPage } from '../../hooks/useProtectPage';
 import {BASE_URL} from "../../constants/apiConstants"
 import { useRequestData } from '../../hooks/useRequestData';
 import ImageCard from '../../components/ImageCard/ImageCard';
-import { ImageFeedPageContainer, FeedContainer, Logomarca, LogoContainer, AddButtonContainer, CardContainer, AddButton } from './styles';
+import { ImageFeedPageContainer, FeedContainer, Logomarca, LogoContainer, AddButtonContainer, CardContainer } from './styles';
 import { goToAddImage } from '../../routes/coordinator'
 import { useHistory } from 'react-router-dom';
+
 
 const ImageFeedPage = () => {
     const history = useHistory()
@@ -23,7 +23,21 @@ const ImageFeedPage = () => {
 
     const orderImages = images && images.sort((a, b) => a.createdAt > b.createdAt ? 1 : -1)
     
+    // Addicon float
+    
+    const useStyles = makeStyles((theme) => ({
+        root: {
+          '& > *': {
+            margin: theme.spacing(1),
+          },
+        },
+        extendedIcon: {
+          marginRight: theme.spacing(1),
+        },
+      }));
 
+      const classes = useStyles();
+      
     return (
         <ImageFeedPageContainer>
             <LogoContainer>
@@ -41,14 +55,12 @@ const ImageFeedPage = () => {
                         />
                     })}
                 </CardContainer>
-                <AddButtonContainer>
-                    <IconButton color="primary" aria-label="upload picture" component="span" onClick={() => goToAddImage(history)}>
-                      <PhotoCamera />
-                    </IconButton>
+                <AddButtonContainer className={classes.root}>
+                <Fab size="small" color="primary" aria-label="add" onClick={() => goToAddImage(history)}>
+                    <AddAPhotoIcon />
+                </Fab>
                 </AddButtonContainer>
             </FeedContainer>
-
-
         </ImageFeedPageContainer>
     )
 }

@@ -11,7 +11,7 @@ export const login = (body, history) => {
         goToImageFeed(history)
     }).catch(error => {
         console.log(error.response)
-        alert("Email ou senha inválidos!")
+        alert(error.response.data.error)
         
     })
 }

@@ -1,11 +1,15 @@
 import { useParams } from 'react-router-dom';
-import logo from '../../assets/img_Logo_para_fundo_vinho.svg'
+import logo from '../../assets/img_logo_para_fundo_branco.svg'
 import { useProtectPage } from '../../hooks/useProtectPage';
 import {useRequestData} from "../../hooks/useRequestData";
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import DeleteIcon from '@material-ui/icons/Delete';
 import {BASE_URL} from "../../constants/apiConstants"
 import { Typography } from '@material-ui/core';
-import {Logomarca, LogoContainer, ImageDetailPageContainer,CardStyled} from "./styles"
+import {Logomarca, LogoContainer, ImageDetailPageContainer,CardStyled, Imagem} from "./styles"
 import CardContent from '@material-ui/core/CardContent';
+import { deleteImage } from '../../services/image'
 import { useHistory } from "react-router-dom";
 
 
@@ -13,10 +17,23 @@ const ImageDetailPage = () => {
     const history = useHistory()
     useProtectPage()
     const params = useParams()
-    const {data, getData} = useRequestData(`${BASE_URL}/image/${params.id}`, [])
-    //verificar complemento do data
+    const {data} = useRequestData(`${BASE_URL}/image/${params.id}`, [])
     const imageDetails = data.image
-  
+
+    // Addicon float
+    
+    const useStyles = makeStyles((theme) => ({
+        root: {
+          '& > *': {
+            margin: theme.spacing(1),
+          },
+        },
+        extendedIcon: {
+          marginRight: theme.spacing(1),
+        },
+      }));
+
+      const classes = useStyles();
 
     return (
         <ImageDetailPageContainer>
@@ -26,27 +43,31 @@ const ImageDetailPage = () => {
                     <Logomarca src={logo} />
                 </LogoContainer>
                 <CardStyled>
-                        <CardContent>
-                            <img src={imageDetails.file}/>
-                            <Typography variant="h5" component="h2">
-                                {imageDetails.subtitle}
+                        <CardContent className={classes.root}>
+                            <Imagem src={imageDetails.file}/>
+                            <Fab size="small" color="primary" aria-label="add" onClick={() => deleteImage(params.id, history)}>
+                                <DeleteIcon />
+                            </Fab>
+                            <Typography component="h4">
+                                Legenda: {imageDetails.subtitle}
                             </Typography>
                             <Typography color="textSecondary" gutterBottom>
-                                {imageDetails.id}
+                                Identificador: {imageDetails.id}
                             </Typography>
                             <Typography color="textSecondary" gutterBottom>
-                                {imageDetails.author}
+                                Autor: {imageDetails.author}
                             </Typography>
                             <Typography color="textSecondary" gutterBottom>
-                                {imageDetails.date}
+                                Data de Cadastro: {new Date(imageDetails.date).toLocaleDateString()},
                             </Typography>
                             <Typography color="textSecondary" gutterBottom>
-                                {imageDetails.collection}
+                                Coleção: {imageDetails.collection}
                             </Typography>                            
-                            <Typography variant="body2" component="p">
-                                {imageDetails.tags}
+                            <Typography color="textSecondary" gutterBottom>
+                                Tags: {imageDetails.tags}
                             </Typography>
                         </CardContent>
+
                  </CardStyled>
             </>
         }</ImageDetailPageContainer>

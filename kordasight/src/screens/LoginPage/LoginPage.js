@@ -2,7 +2,7 @@ import React from 'react';
 import {useForm} from "../../hooks/useForm"
 import { login } from '../../services/user';
 import {TextField, Button} from '@material-ui/core'
-import logo from '../../assets/img_Logo_para_fundo_vinho.svg'
+import logo from '../../assets/img_logo_para_fundo_branco.svg'
 import { FormContainer, LoginPageContainer, Logomarca } from './styles';
 import { useHistory } from 'react-router-dom';
 import { useUnprotectPage } from '../../hooks/useUnprotectPage';
@@ -23,7 +23,6 @@ const LoginPage = () => {
 
     const handleSubmission = (event) => {
         event.preventDefault()
-        console.log("Form enviado paraa função:", form)
         login(form, history)
     }
 

@@ -9,7 +9,6 @@ import ErrorPage from '../screens/ErrorPage/ErrorPage'
 
 const Router = () => {
     return (
-        <BrowserRouter>
             <Switch>
                 <Route exact path={'/login'}>
                     <LoginPage/>
@@ -30,7 +29,6 @@ const Router = () => {
                     <ErrorPage/>
                 </Route>    
             </Switch>
-        </BrowserRouter>
     )
 }
 

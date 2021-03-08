@@ -1,7 +1,7 @@
 import React from 'react';
 import {useForm} from "../../hooks/useForm"
 import {TextField, Button} from '@material-ui/core'
-import logo from '../../assets/img_Logo_para_fundo_vinho.svg'
+import logo from '../../assets/img_logo_para_fundo_branco.svg'
 import { FormContainer, Logomarca, SignupPageContainer } from './styles';
 import { useHistory } from 'react-router-dom';
 import {signup} from "../../services/user"
