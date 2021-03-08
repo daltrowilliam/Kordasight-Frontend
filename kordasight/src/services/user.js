@@ -6,8 +6,6 @@ export const login = (body, history) => {
     
     axios.post(`${BASE_URL}/user/login`, body).then(response => {
         console.log(`${BASE_URL}"/user/login"`)
-        console.log(body)
-        console.log(response)
         localStorage.setItem("token", response.data.result.accessToken)
         localStorage.setItem("username", response.data.result.username)
         goToImageFeed(history)
@@ -21,11 +19,13 @@ export const login = (body, history) => {
 export const signup = (body, history) => {
     
     axios.post(`${BASE_URL}/user/signup`, body).then(response => {
-        localStorage.setItem("token", response.data.result.accessToken)
-        localStorage.setItem("username", response.data.result.username)
+        console.log(body)
+        console.log("Resposta do back:", response)
+        localStorage.setItem("token", response.data.token)
+        localStorage.setItem("username", body.name)
         goToImageFeed(history)
     }).catch(error => {
-        alert("Erro ao cadastar usuário!")
+        alert(error.response.data.error)
         
     })
 }

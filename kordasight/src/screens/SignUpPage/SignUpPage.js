@@ -10,7 +10,7 @@ import { useUnprotectPage } from '../../hooks/useUnprotectPage';
 const SignUpPage = () => {
     useUnprotectPage()
     const history = useHistory()
-    const {form, onChange} = useForm({username: "", email: "", nickname: "", password: ""})
+    const {form, onChange} = useForm({name: "", email: "", nickname: "", password: ""})
 
     const handleInputChange = (event) => {
         const {value, name} = event.target
@@ -20,7 +20,6 @@ const SignUpPage = () => {
 
     const handleSubmission = (event) => {
         event.preventDefault()
-        
         signup(form, history)
     }
 
@@ -32,8 +31,8 @@ const SignUpPage = () => {
                     label="Nome"
                     variant="outlined"
                     required
-                    name="username"
-                    value={form.username}
+                    name="name"
+                    value={form.name}
                     onChange={handleInputChange}
                 />
                 <TextField 
